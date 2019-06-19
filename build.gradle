@@ -29,6 +29,8 @@ configurations {
 dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java"
     annotationProcessor "io.micronaut:micronaut-validation"
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    // todo what is the difference between compile and compileOnly?
     compile "io.micronaut:micronaut-inject"
     compile "io.micronaut:micronaut-validation"
     compile "io.micronaut:micronaut-runtime"
@@ -37,6 +39,7 @@ dependencies {
     compile "io.micronaut:micronaut-http-server-netty"
     compile "io.micronaut.configuration:micronaut-hibernate-jpa"
     compile "io.micronaut.configuration:micronaut-jdbc-hikari"
+    compileOnly 'org.projectlombok:lombok:1.18.8'
     runtime "com.h2database:h2"
     runtime "ch.qos.logback:logback-classic:1.2.3"
     testAnnotationProcessor "io.micronaut:micronaut-inject-java"
