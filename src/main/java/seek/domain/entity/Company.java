@@ -1,6 +1,7 @@
 package seek.domain.entity;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(schema = "SEEK", name = "COMPANY")
+@EqualsAndHashCode
 public class Company {
 
     /**
@@ -61,6 +63,7 @@ public class Company {
      * The company's available job positions.
      */
     @OneToMany(mappedBy = "company")
+    @EqualsAndHashCode.Exclude
     @SuppressWarnings("unused")
     private List<Position> positions = new ArrayList<>();
 

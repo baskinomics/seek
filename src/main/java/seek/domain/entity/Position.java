@@ -1,6 +1,7 @@
 package seek.domain.entity;
 
 import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,6 +15,7 @@ import java.util.UUID;
  */
 @Entity
 @Table(schema = "SEEK", name = "POSITION")
+@EqualsAndHashCode
 public class Position {
 
     /**
@@ -99,12 +101,13 @@ public class Position {
     private String notes;
 
     /**
-     *
+     * The {@link Company} with which this position is associated.
      */
     @Getter
-    @Setter
+    @Setter(value = AccessLevel.PROTECTED)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COMPANY_ID")
+    @EqualsAndHashCode.Exclude
     @SuppressWarnings("unused")
     private Company company;
 
