@@ -7,3 +7,12 @@ datasources:
     username: ${JDBC_USER:se}
     password: ${JDBC_PASSWORD:""}
     driverClassName: ${JDBC_DRIVER:org.h2.Driver}
+jpa:
+  default:
+    packages-to-scan:
+      - 'seek.domain.entity'
+    properties:
+      hibernate:
+        hbm2dd1:
+          auto: update
+        show_sql: true
