@@ -3,6 +3,7 @@ package seek.domain.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 /**
@@ -28,6 +29,7 @@ public class Position {
     /**
      * A {@link Company} instance.
      */
+    @NotNull(message = "Company ID cannot be null.")
     @Column(name = "COMPANY_ID")
     @SuppressWarnings("unused")
     private UUID companyId;
@@ -65,14 +67,14 @@ public class Position {
      */
     @Column(name = "IS_COVER_LETTER")
     @SuppressWarnings("unused")
-    private boolean isCoverLetterCompleted;
+    private boolean isCoverLetterCompleted = false;
 
     /**
      * Indicates whether the application for this position has been submitted.
      */
     @Column(name = "IS_APPLIED")
     @SuppressWarnings("unused")
-    private boolean isApplied;
+    private boolean isApplied = false;
 
     /**
      * User notes about the position.
