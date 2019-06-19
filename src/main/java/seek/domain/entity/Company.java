@@ -1,9 +1,6 @@
 package seek.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -12,20 +9,20 @@ import java.util.UUID;
 
 /**
  * Represents a company that may or may not have job positions available.
+ * todo: validation
  *
  * @see {@link Position}
  * @author Sean Baskin
  */
+@Data
 @Entity
 @Table(schema = "SEEK", name = "COMPANY")
-@EqualsAndHashCode
 public class Company {
 
     /**
      * todo ID field
      */
     @Id
-    @Getter
     @Setter(value = AccessLevel.PROTECTED)
     @Column(name = "ID", insertable = false, updatable = false, nullable = false)
     @SuppressWarnings("unused")

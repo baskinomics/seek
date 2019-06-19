@@ -1,28 +1,25 @@
 package seek.domain.entity;
 
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 /**
  * Represents a job position and associated metadata.
+ * todo: validation
  *
  * @author Sean Baskin
  */
+@Data
 @Entity
 @Table(schema = "SEEK", name = "POSITION")
-@EqualsAndHashCode
 public class Position {
 
     /**
      * todo ID field
      */
     @Id
-    @Getter
     @Setter(value = AccessLevel.PROTECTED)
     @Column(name = "POSITION_ID", insertable = false, updatable = false, nullable = false)
     @SuppressWarnings("unused")
@@ -31,8 +28,6 @@ public class Position {
     /**
      * A {@link Company} instance.
      */
-    @Getter
-    @Setter
     @Column(name = "COMPANY_ID")
     @SuppressWarnings("unused")
     private UUID companyId;
@@ -40,8 +35,6 @@ public class Position {
     /**
      * The URL of the job position posting.
      */
-    @Getter
-    @Setter
     @Column(name = "POSITION_URL")
     @SuppressWarnings("unused")
     private String positionUrl;
@@ -49,8 +42,6 @@ public class Position {
     /**
      * The user-defined ranking of the position.
      */
-    @Getter
-    @Setter
     @Column(name = "RANK")
     @SuppressWarnings("unused")
     private int rank;
@@ -58,8 +49,6 @@ public class Position {
     /**
      * The Glassdoor interview difficulty rating for this position.
      */
-    @Getter
-    @Setter
     @Column(name = "INTERVIEW_DIFFICUTY")
     @SuppressWarnings("unused")
     private float interviewDifficulty;
@@ -67,8 +56,6 @@ public class Position {
     /**
      * The location of this position.
      */
-    @Getter
-    @Setter
     @Column(name = "LOCATION")
     @SuppressWarnings("unused")
     private String location;
@@ -76,8 +63,6 @@ public class Position {
     /**
      * Indicates whether a cover letter has been completed for this position.
      */
-    @Getter
-    @Setter
     @Column(name = "IS_COVER_LETTER")
     @SuppressWarnings("unused")
     private boolean isCoverLetterCompleted;
@@ -85,8 +70,6 @@ public class Position {
     /**
      * Indicates whether the application for this position has been submitted.
      */
-    @Getter
-    @Setter
     @Column(name = "IS_APPLIED")
     @SuppressWarnings("unused")
     private boolean isApplied;
@@ -94,8 +77,6 @@ public class Position {
     /**
      * User notes about the position.
      */
-    @Getter
-    @Setter
     @Column(name = "NOTES")
     @SuppressWarnings("unused")
     private String notes;
@@ -103,18 +84,10 @@ public class Position {
     /**
      * The {@link Company} with which this position is associated.
      */
-    @Getter
     @Setter(value = AccessLevel.PROTECTED)
+    @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "COMPANY_ID")
-    @EqualsAndHashCode.Exclude
     @SuppressWarnings("unused")
     private Company company;
-
-    /**
-     * Default constructor.
-     */
-    public Position() {
-
-    }
 }
