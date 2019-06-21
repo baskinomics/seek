@@ -30,6 +30,8 @@ dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java"
     annotationProcessor "io.micronaut:micronaut-validation"
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor "javax.persistence:javax.persistence-api:2.2"
+
     // todo what is the difference between compile and compileOnly?
     compile "io.micronaut:micronaut-inject"
     compile "io.micronaut:micronaut-validation"
