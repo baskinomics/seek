@@ -89,7 +89,7 @@ public class Position {
     @Setter(value = AccessLevel.PROTECTED)
     @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "COMPANY_ID")
+    @JoinColumn(name = "COMPANY_ID", insertable = false, updatable = false)
     @SuppressWarnings("unused")
     private Company company;
 }
