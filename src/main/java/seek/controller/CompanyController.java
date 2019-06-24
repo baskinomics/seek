@@ -2,8 +2,8 @@ package seek.controller;
 
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import seek.domain.entity.Company;
-import seek.repository.CompanyRepository;
+import seek.domain.dto.CompanyDto;
+import seek.service.CompanyService;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -12,11 +12,11 @@ import java.util.List;
 public class CompanyController {
 
     @Inject
-    protected CompanyRepository companyRepository;
+    protected CompanyService companyService;
 
     @Get(value = "/list")
     @SuppressWarnings("unused")
-    public List<Company> list() {
-        return companyRepository.findAll();
+    public List<CompanyDto> list() {
+        return companyService.list();
     }
 }
