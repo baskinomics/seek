@@ -14,7 +14,7 @@ import java.util.UUID;
  */
 @Data
 @Entity
-@Table(schema = "core", name = "position")
+@Table(name = "position")
 public class Position {
 
     /**
