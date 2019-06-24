@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 @Data
 @Entity
-@Table(schema = "SEEK", name = "COMPANY")
+@Table(schema = "core", name = "company")
 public class Company {
 
     /**
@@ -24,35 +24,35 @@ public class Company {
      */
     @Id
     @Setter(value = AccessLevel.PROTECTED)
-    @Column(name = "ID", insertable = false, updatable = false, nullable = false)
+    @Column(name = "company_id", columnDefinition = "uuid", insertable = false, updatable = false, nullable = false)
     @SuppressWarnings("unused")
     private UUID id = UUID.randomUUID();
 
     /**
      * The company name.
      */
-    @Column(name = "NAME")
+    @Column(name = "name", columnDefinition = "varchar")
     @SuppressWarnings("unused")
     private String name;
 
     /**
      * The company URL.
      */
-    @Column(name = "COMPANY_URL")
+    @Column(name = "company_url", columnDefinition = "varchar")
     @SuppressWarnings("unused")
     private String companyUrl;
 
     /**
      * The company careers URL.
      */
-    @Column(name = "CAREERS_URL")
+    @Column(name = "careers_url", columnDefinition = "varchar")
     @SuppressWarnings("unused")
     private String careersUrl;
 
     /**
      * The Glassdoor company rating.
      */
-    @Column(name = "GLASSDOOR_RATING")
+    @Column(name = "glassdoor_rating", columnDefinition = "real")
     @SuppressWarnings("unused")
     private float glassdoorRating;
 

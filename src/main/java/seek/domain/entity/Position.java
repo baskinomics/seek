@@ -14,7 +14,7 @@ import java.util.UUID;
  */
 @Data
 @Entity
-@Table(schema = "SEEK", name = "POSITION")
+@Table(schema = "core", name = "position")
 public class Position {
 
     /**
@@ -22,7 +22,7 @@ public class Position {
      */
     @Id
     @Setter(value = AccessLevel.PROTECTED)
-    @Column(name = "POSITION_ID", insertable = false, updatable = false, nullable = false)
+    @Column(name = "position_id", columnDefinition = "uuid", insertable = false, updatable = false, nullable = false)
     @SuppressWarnings("unused")
     private UUID id = UUID.randomUUID();
 
@@ -30,56 +30,56 @@ public class Position {
      * A {@link Company} instance.
      */
     @NotNull(message = "Company ID cannot be null.")
-    @Column(name = "COMPANY_ID")
+    @Column(name = "company_id", columnDefinition = "uuid")
     @SuppressWarnings("unused")
     private UUID companyId;
 
     /**
      * The URL of the job position posting.
      */
-    @Column(name = "POSITION_URL")
+    @Column(name = "position_url", columnDefinition = "varchar")
     @SuppressWarnings("unused")
     private String positionUrl;
 
     /**
      * The user-defined ranking of the position.
      */
-    @Column(name = "RANK")
+    @Column(name = "rank", columnDefinition = "integer")
     @SuppressWarnings("unused")
     private int rank;
 
     /**
      * The Glassdoor interview difficulty rating for this position.
      */
-    @Column(name = "INTERVIEW_DIFFICUTY")
+    @Column(name = "interview_difficulty", columnDefinition = "real")
     @SuppressWarnings("unused")
     private float interviewDifficulty;
 
     /**
      * The location of this position.
      */
-    @Column(name = "LOCATION")
+    @Column(name = "location", columnDefinition = "varchar")
     @SuppressWarnings("unused")
     private String location;
 
     /**
      * Indicates whether a cover letter has been completed for this position.
      */
-    @Column(name = "IS_COVER_LETTER")
+    @Column(name = "is_cover_letter", columnDefinition = "boolean")
     @SuppressWarnings("unused")
     private boolean isCoverLetterCompleted = false;
 
     /**
      * Indicates whether the application for this position has been submitted.
      */
-    @Column(name = "IS_APPLIED")
+    @Column(name = "is_applied", columnDefinition = "boolean")
     @SuppressWarnings("unused")
     private boolean isApplied = false;
 
     /**
      * User notes about the position.
      */
-    @Column(name = "NOTES")
+    @Column(name = "notes", columnDefinition = "varchar")
     @SuppressWarnings("unused")
     private String notes;
 
@@ -89,7 +89,7 @@ public class Position {
     @Setter(value = AccessLevel.PROTECTED)
     @EqualsAndHashCode.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "COMPANY_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "company_id", insertable = false, updatable = false)
     @SuppressWarnings("unused")
     private Company company;
 }
