@@ -1,11 +1,11 @@
 /* Create seek database */
-CREATE DATABASE seek;
+/* CREATE DATABASE seek; */
 
 /* Create the core schema */
-CREATE SCHEMA core;
+/* CREATE SCHEMA seek.core; */
 
 /* Create the table objects */
-CREATE TABLE core.company (
+CREATE TABLE company (
     /*
         todo Configure uuid-ossp so UUIDs can be generated.
         See: https://www.postgresql.org/docs/11/uuid-ossp.html
@@ -17,7 +17,7 @@ CREATE TABLE core.company (
     glassdoor_rating real
 );
 
-CREATE TABLE core.position (
+CREATE TABLE position (
     position_id uuid,
     company_id uuid NOT NULL,
     position_url varchar,
@@ -28,5 +28,5 @@ CREATE TABLE core.position (
     is_applied boolean DEFAULT false,
     notes varchar,
     PRIMARY KEY (position_id, company_id),
-    FOREIGN KEY (company_id) REFERENCES core.company
+    FOREIGN KEY (company_id) REFERENCES company
 );
