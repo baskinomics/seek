@@ -1,6 +1,9 @@
 package seek.service;
 
 import io.micronaut.spring.tx.annotation.Transactional;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import seek.domain.dto.CompanyDto;
 import seek.domain.entity.Company;
 import seek.repository.CompanyRepository;
@@ -8,6 +11,7 @@ import seek.repository.CompanyRepository;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -16,6 +20,12 @@ import java.util.stream.Collectors;
  */
 @Singleton
 public class CompanyService {
+
+    /**
+     * Class logger.
+     */
+    private static final Logger log = LogManager.getLogger(CompanyService.class);
+
 
     /**
      * todo Documentation
@@ -42,8 +52,17 @@ public class CompanyService {
      * @return
      */
     @Transactional
-    public Company get(final UUID id) {
-        return companyRepository.findById(id).orElse(null);
+    public Optional<CompanyDto> get(final String id) {
+        log.log(Level.DEBUG, String.format("Verifying the provided UUID[value: %s] is valid.", id));
+        try {
+            final UUID verified = UUID.fromString(id);
+            log.log(Level.DEBUG, String.format("%s is valid.", verified.toString()));
+            final Optional<Company> result = companyRepository.findById(verified);
+            return result.map(CompanyDto::new);
+        } catch (IllegalArgumentException e) {
+            log.log(Level.ERROR, e.getMessage());
+            return Optional.empty();
+        }
     }
 
     /**

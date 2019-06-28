@@ -2,12 +2,14 @@ package seek.repository;
 
 import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 import io.micronaut.spring.tx.annotation.Transactional;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import seek.domain.entity.Company;
 
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -30,7 +32,7 @@ public class CompanyRepositoryImpl implements CompanyRepository {
     /**
      * Class logger.
      */
-    private static final Logger log = LoggerFactory.getLogger(CompanyRepositoryImpl.class);
+    private static final Logger log = LogManager.getLogger(CompanyRepositoryImpl.class);
 
     /**
      * todo documentation
@@ -53,7 +55,9 @@ public class CompanyRepositoryImpl implements CompanyRepository {
     @Override
     @Transactional(readOnly = true)
     public Optional<Company> findById(@NotNull final UUID id) {
-        // 1. todo
+        log.log(Level.DEBUG, String.format("Querying for Company[id: {}].", id.toString()));
+
+        // 1. Compose our criteria
         final CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
         final CriteriaQuery<Company> criteria = criteriaBuilder.createQuery(Company.class);
 
@@ -62,8 +66,16 @@ public class CompanyRepositoryImpl implements CompanyRepository {
         final Predicate idEqualsPredicate = criteriaBuilder.equal(root.get("id"), id);
         criteria.select(root).where(idEqualsPredicate);
 
+        // todo Create and register an exception handler for these checked exceptions.
         // 3. Execute the query and return the result
-        return Optional.ofNullable(entityManager.createQuery(criteria).getSingleResult());
+        try {
+            return Optional.ofNullable(entityManager
+                    .createQuery(criteria)
+                    .getSingleResult());
+        } catch (EntityNotFoundException e) {
+            log.log(Level.ERROR, e.getMessage());
+            return Optional.empty();
+        }
     }
 
     /**
@@ -72,6 +84,8 @@ public class CompanyRepositoryImpl implements CompanyRepository {
     @Override
     @Transactional(readOnly = true)
     public List<Company> findAll() {
+        log.log(Level.DEBUG, "Querying for all companies.");
+
         // 1. Instantiate a collection for our query result
         final List<Company> results = new ArrayList<>();
 

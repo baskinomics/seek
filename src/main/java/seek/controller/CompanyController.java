@@ -10,6 +10,7 @@ import seek.service.CompanyService;
 import javax.inject.Inject;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -43,8 +44,12 @@ public class CompanyController {
      */
     @Get("/{id}")
     @SuppressWarnings("unused")
-    public Company get(final String id) {
-        return companyService.get(UUID.fromString(id));
+    public HttpResponse<CompanyDto> get(final String id) {
+        final Optional<CompanyDto> result = companyService.get(id);
+        if (result.isPresent())
+            return HttpResponse.ok(result.get());
+        else
+            return HttpResponse.notFound();
     }
 
     /**
@@ -57,7 +62,6 @@ public class CompanyController {
     @SuppressWarnings("unused")
     public HttpResponse<CompanyDto> save(@Body Company company) {
         final CompanyDto persisted = companyService.save(company);
-
         return HttpResponse
                 .created(persisted)
                 .headers(headers -> headers.location(location(company.getId())));
@@ -103,7 +107,7 @@ public class CompanyController {
 
     /**
      * todo Documentation
-     * 
+     *
      * @param company
      * @return
      */
