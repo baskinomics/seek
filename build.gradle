@@ -41,10 +41,12 @@ dependencies {
     compile "io.micronaut:micronaut-http-server-netty"
     compile "io.micronaut.configuration:micronaut-hibernate-jpa"
     compile "io.micronaut.configuration:micronaut-jdbc-hikari"
+    compile "org.apache.logging.log4j:log4j-api:2.11.2"
+    compile "org.apache.logging.log4j:log4j-core:2.11.2"
+    compile "org.slf4j:slf4j-nop:1.7.25"
     compileOnly 'org.projectlombok:lombok:1.18.8'
     runtime 'org.postgresql:postgresql:42.2.4'
     runtime "com.h2database:h2"
-    runtime "ch.qos.logback:logback-classic:1.2.3"
     testAnnotationProcessor "io.micronaut:micronaut-inject-java"
     testCompile "org.junit.jupiter:junit-jupiter-api"
     testCompile "io.micronaut.test:micronaut-test-junit5"

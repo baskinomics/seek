@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+    <!-- Properties -->
+    <Properties>
+        <Property name="basePath">../Log4j2Example/logs</Property>
+    </Properties>
+    <!-- Appenders -->
+    <Appenders>
+        <!-- Console Appender -->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <!-- <PatternLayout pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{2} (%F:%L) - %m%n" /> -->
+            <!-- <PatternLayout pattern="%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n" /> -->
+            <PatternLayout pattern="%style{%d{HH:mm:ss.SSS}}{cyan} %style{[%thread]}{gray} %highlight{%-5level} %style{%logger{36}}{magenta} - %msg%n" />
+        </Console>
+    </Appenders>
+    <!-- Loggers -->
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="STDOUT" />
+        </Root>
+    </Loggers>
+</Configuration>
