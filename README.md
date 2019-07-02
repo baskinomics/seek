@@ -29,6 +29,8 @@ This section is a temporary topic that serves as my personal notepad while I am 
 * [GitHub - Micronaut Guides - Access a database with JPA and Hibernate](https://github.com/micronaut-guides/micronaut-data-access-jpa-hibernate/tree/master/complete)
 * [Server Events](https://docs.micronaut.io/latest/guide/index.html#serverEvents)
 * [Configuring Hibernate](https://micronaut-projects.github.io/micronaut-sql/latest/guide/#hibernate)
+* [Testing with JUnit5](https://micronaut-projects.github.io/micronaut-test/latest/guide/index.html#junit5)
+* [Externalized Configuration with Property Sources](https://docs.micronaut.io/latest/guide/index.html#propertySource)
 
 ### JPA and Hibernate
 * [Criteria Queries Using JPA Metamodel](https://www.baeldung.com/hibernate-criteria-queries-metamodel)
