@@ -37,17 +37,18 @@ public interface CompanyRepository {
     Company save(@NotNull Company company);
 
     /**
+     * Update an existing {@link Company} instance.
+     *
+     * @param company The updated {@link Company} instance.
+     * @return The updated {@link Company}.
+     */
+    Company update(@NotNull Company company);
+
+    /**
      * Deletes the {@link Company} for the given {@code id}.
      *
      * @param id The company ID to delete.
      */
     void deleteById(@NotNull UUID id);
 
-    /**
-     * Update an existing {@link Company} instance.
-     *
-     * @param company The updated {@link Company} instance.
-     * @return Company The updated company.
-     */
-    Company update(@NotNull Company company);
 }

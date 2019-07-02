@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 /**
- * Exposes an implementation of {@link CompanyRepository}.
+ * Implementation of the {@link CompanyRepository} interface.
  *
  * @author Sean Baskin
  */
@@ -118,8 +118,8 @@ public class CompanyRepositoryImpl implements CompanyRepository {
      */
     @Override
     @Transactional
-    public void deleteById(@NotNull final UUID id) {
-        findById(id).ifPresent(company -> entityManager.remove(company));
+    public Company update(@NotNull final Company company) {
+        return entityManager.merge(company);
     }
 
     /**
@@ -127,7 +127,8 @@ public class CompanyRepositoryImpl implements CompanyRepository {
      */
     @Override
     @Transactional
-    public Company update(@NotNull final Company company) {
-        return entityManager.merge(company);
+    public void deleteById(@NotNull final UUID id) {
+        findById(id).ifPresent(company -> entityManager.remove(company));
     }
+
 }
