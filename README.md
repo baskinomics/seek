@@ -26,9 +26,9 @@ There is no shortage of tools to _find_ a job: LinkedIn, Indeed, Glassdoor, Stac
 This section is a temporary topic that serves as my personal notepad while I am developing the application.
 
 ### Gradle
-[Gradle Kotlin DSL Primer](https://docs.gradle.org/5.0/userguide/kotlin_dsl.html)
-[Migrating build logic from Groovy to Kotlin](https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin/#configurations-and-dependencies)
-[Building Java & JVM projects](https://docs.gradle.org/current/userguide/building_java_projects.html#sec:java_dependency_management_overview)
+* [Gradle Kotlin DSL Primer](https://docs.gradle.org/5.0/userguide/kotlin_dsl.html)
+* [Migrating build logic from Groovy to Kotlin](https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin/#configurations-and-dependencies)
+* [Building Java & JVM projects](https://docs.gradle.org/current/userguide/building_java_projects.html#sec:java_dependency_management_overview)
 
 ### Micronaut
 * [Micronaut Guides - Access a database with JPA and Hibernate](https://guides.micronaut.io/micronaut-data-access-jpa-hibernate/guide/index.html)
