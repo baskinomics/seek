@@ -9,12 +9,15 @@ import seek.domain.entity.Position;
 import seek.repository.PositionRepository;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Singleton
 public class PositionService {
+
     /**
      * Class logger.
      */
@@ -62,7 +65,7 @@ public class PositionService {
     /**
      * todo Documentation
      *
-     * @param company
+     * @param position
      * @return
      */
     @Transactional
