@@ -1,5 +1,6 @@
 package seek.repository;
 
+import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 import io.micronaut.spring.tx.annotation.Transactional;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -26,6 +27,7 @@ import java.util.UUID;
  * @author Sean Baskin
  */
 @Singleton
+@SuppressWarnings("unused")
 public class PositionRepositoryImpl implements PositionRepository {
 
     /**
@@ -36,8 +38,12 @@ public class PositionRepositoryImpl implements PositionRepository {
     /**
      * todo Documentation.
      */
-    @PersistenceContext
+    // @PersistenceContext
     private EntityManager entityManager;
+
+    public PositionRepositoryImpl(@CurrentSession EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     /**
      * {@inheritDoc}
