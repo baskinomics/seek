@@ -24,7 +24,7 @@ plugins {
 application {
     mainClassName = "seek.Application"
     group = "seek"
-    version = "0.0.1"
+    version = "0.0.2-SNAPSHOT"
 }
 
 // 2b. Repository Configuration
