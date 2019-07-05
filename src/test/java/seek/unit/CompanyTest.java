@@ -8,6 +8,8 @@ import seek.domain.entity.Company;
 
 /**
  * todo documentation
+ *
+ * See: https://docs.micronaut.io/snapshot/guide/index.html#environments
  */
 @MicronautTest(environments = {"test"})
 class CompanyTest {
