@@ -21,38 +21,63 @@ After taking some time to evaluate the datasets and the aforementioned items, I 
 
 There is no shortage of tools to _find_ a job: LinkedIn, Indeed, Glassdoor, StackOverflow Jobs, etcetera. But to date, I have not come across any tools in this specific domain aimed at the job seeker _themselves_. Looking for a job, frankly, sucks. The goal of `seek` is to reduce the degrees of suck in that experience.
 
-## Notes and Resources
+## Notes
+
+### Resources
 
 This section is a temporary topic that serves as my personal notepad while I am developing the application.
 
-### Gradle
+#### Gradle
 * [Gradle Kotlin DSL Primer](https://docs.gradle.org/5.0/userguide/kotlin_dsl.html)
 * [Migrating build logic from Groovy to Kotlin](https://guides.gradle.org/migrating-build-logic-from-groovy-to-kotlin/#configurations-and-dependencies)
 * [Building Java & JVM projects](https://docs.gradle.org/current/userguide/building_java_projects.html#sec:java_dependency_management_overview)
 
-### Micronaut
+#### Java
+* [Understanding Java 9 Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)
+* [A Guide To Java 9 Modularity](https://www.baeldung.com/java-9-modularity)
+* [Building Java 9 Modules](https://guides.gradle.org/building-java-9-modules/)
+* [Building and testing Java 9 applications with Gradle](https://melix.github.io/javaone-2017-jigsaw)
+* [Project Jigsaw: Module System Quick Start Guide](http://openjdk.java.net/projects/jigsaw/quick-start)
+* [Project Jigsaw: Quick Start Guide](http://openjdk.java.net/projects/jigsaw/quick-start)
+* [Migrating a Spring Boot application to Java 9](https://blog.frankel.ch/migrating-to-java-9/2/)
+* [Java 9 Module Example](https://www.concretepage.com/java/java-9/java-module)
+
+#### Micronaut
 * [Micronaut Guides - Access a database with JPA and Hibernate](https://guides.micronaut.io/micronaut-data-access-jpa-hibernate/guide/index.html)
 * [GitHub - Micronaut Guides - Access a database with JPA and Hibernate](https://github.com/micronaut-guides/micronaut-data-access-jpa-hibernate/tree/master/complete)
 * [Server Events](https://docs.micronaut.io/latest/guide/index.html#serverEvents)
 * [Configuring Hibernate](https://micronaut-projects.github.io/micronaut-sql/latest/guide/#hibernate)
 * [Testing with JUnit5](https://micronaut-projects.github.io/micronaut-test/latest/guide/index.html#junit5)
 * [Externalized Configuration with Property Sources](https://docs.micronaut.io/latest/guide/index.html#propertySource)
+* [How to Mock Micronaut Beans in Test](https://medium.com/agorapulse-stories/how-to-mock-micronaut-beans-in-tests-eaba6d20de70)
 
-### JPA and Hibernate
+#### JPA and Hibernate
 * [Criteria Queries Using JPA Metamodel](https://www.baeldung.com/hibernate-criteria-queries-metamodel)
 * [Restricting Criteria Query Results](https://docs.oracle.com/cd/E19798-01/821-1841/gjivi/index.html)
 * [Java Persistence - Identity Sequencing](https://en.wikibooks.org/wiki/Java_Persistence/Identity_and_Sequencing#Identity_sequencing)
 
-### Lombok
+#### Lombok
 * [`@Data`](https://projectlombok.org/features/Data)
 * [Introduction to Project Lombok](https://www.baeldung.com/intro-to-project-lombok)
 * [IntelliJ IDEA](https://projectlombok.org/setup/intellij)
 
-### Docker
+#### Docker
 * [postgres | Docker Documentation](https://docs.docker.com/samples/library/postgres/)
 * [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/)
 
-### PostgreSQL
+#### PostgreSQL
 * [PostgreSQL 11.4 Documentation](https://www.postgresql.org/docs/11/index.html)
 * [The Basics of the PostgreSQL UUID Data Type](http://www.postgresqltutorial.com/postgresql-uuid/)
 
+### Module Migration Architecture Design
+
+```
+seek/
+└── src/
+    └── io.baskinomics.seek/
+        ├── io/
+        │   └── baskinomics/
+        │       └── seek/
+        │           └── Application.java
+        └── module-info.java
+```
