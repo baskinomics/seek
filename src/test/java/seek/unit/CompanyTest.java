@@ -1,11 +1,15 @@
 package seek.unit;
 
+import io.micronaut.test.annotation.MicronautTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import seek.domain.dto.CompanyDto;
 import seek.domain.entity.Company;
 
-// @MicronautTest
+/**
+ * todo documentation
+ */
+@MicronautTest(environments = {"test"})
 class CompanyTest {
 
     @Test

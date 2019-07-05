@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: seek
+datasources:
+  default:
+    url: "jdbc:postgresql://localhost:5432/postgres"
+    username: "postgres"
+    password: "pass"
+    driverClassName: "org.postgresql.Driver"
+jpa:
+  default:
+    packages-to-scan:
+      - 'seek.domain.entity'
+    properties:
+      hibernate:
+        hbm2dd1:
+          auto: update
+        show_sql: true
