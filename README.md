@@ -21,6 +21,29 @@ After taking some time to evaluate the datasets and the aforementioned items, I 
 
 There is no shortage of tools to _find_ a job: LinkedIn, Indeed, Glassdoor, StackOverflow Jobs, etcetera. But to date, I have not come across any tools in this specific domain aimed at the job seeker _themselves_. Looking for a job, frankly, sucks. The goal of `seek` is to reduce the degrees of suck in that experience.
 
+## Planned Functionality for `v1.0.0`
+
+Models encapsulating and operations against:
+* Job positions
+* Companies
+* Recruiters
+* Resources
+* Locations
+* Market Value
+
+Automated retrieval of company metadata: 
+* Glassdoor rating
+* LinkedIn URL
+* StackOverflow Jobs URL
+
+Automated retrieval of job position metadata: 
+* Glassdoor estimated salary range or value
+* Glassdoor interview difficulty value for the provided position title
+
+### Future Vision
+
+There is a plethora of additional functionality I would like to incorporate into this application, as the `seek` API is being designed currently with the intention of a kick ass client application to consume it. Stay tuned for new details.
+
 ## Notes
 
 This section is a temporary topic that serves as my personal notepad while I am developing the application.
