@@ -23,9 +23,9 @@ There is no shortage of tools to _find_ a job: LinkedIn, Indeed, Glassdoor, Stac
 
 ## Notes
 
-### Resources
-
 This section is a temporary topic that serves as my personal notepad while I am developing the application.
+
+### Resources
 
 #### Gradle
 * [Gradle Kotlin DSL Primer](https://docs.gradle.org/5.0/userguide/kotlin_dsl.html)
