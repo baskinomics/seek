@@ -76,7 +76,6 @@ dependencies {
     // todo documentation
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-validation")
-    annotationProcessor("io.micronaut:micronaut-validation")
     compile("io.micronaut:micronaut-inject")
     compile("io.micronaut:micronaut-validation")
     compile("io.micronaut:micronaut-runtime")
@@ -84,15 +83,6 @@ dependencies {
     compile("io.micronaut:micronaut-http-server-netty")
     compile("io.micronaut.configuration:micronaut-hibernate-jpa")
     compile("io.micronaut.configuration:micronaut-jdbc-hikari")
-
-    // Testing with JUnit 5
-    // See: https://micronaut-projects.github.io/micronaut-test/latest/guide/index.html#junit5
-    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
-    testCompile("io.micronaut.test:micronaut-test-junit5")
-
-    // JUnit
-    testCompile("org.junit.jupiter:junit-jupiter-api")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine")
 
     // PostgreSQL
     runtime("org.postgresql:postgresql:42.2.4")
@@ -104,7 +94,18 @@ dependencies {
     // todo resolve or include explanation for including this
     compile("org.slf4j:slf4j-nop:1.7.25")
 
+    // Testing with JUnit 5
+    // See: https://micronaut-projects.github.io/micronaut-test/latest/guide/index.html#junit5
+    // Required to define mock beans
+    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+    testCompile("io.micronaut.test:micronaut-test-junit5")
+
+    // JUnit
+    testCompile("org.junit.jupiter:junit-jupiter-api")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine")
+
     // Mockito
+    // testCompile("org.mockito:mockito-junit-jupiter")
 }
 
 // 3. Task configuration
@@ -126,7 +127,11 @@ tasks {
 
     // 3c. Java Plugin - `compileJava` task configuration
     compileJava {
+
+        // todo documentation
         options.encoding = "UTF-8"
+
+        // See Retaining Parameter Names: https://docs.micronaut.io/latest/guide/index.html#java
         options.compilerArgs.add("-parameters")
     }
 
